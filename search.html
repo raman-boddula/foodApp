@@ -21,9 +21,22 @@
     import navbar from "./components/navbar.js";
     let navbar_div = document.getElementById('navbard')
     navbar_div.innerHTML = navbar();
-
-    let display = document.getElementById('search').value;
-    console.log(display)
-    
+    import {getDetails ,AppendData} from "./scripts/showData.js"
+    let display = document.getElementById('search');
+    var butn = document.getElementById('btn')
+    var container = document.getElementById('dis')
+    butn.onclick=(()=>{
+        container.innerHTML=null;
+        var query = display.value;
+        console.log(query)
+      var response =  getDetails(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
+      console.log(response)
+      response.then((res)=>{
+          console.log('res',res)
+          var data = res.meals;
+          
+          AppendData(data,container)
+      })
+    })
 
 </script>
