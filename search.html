@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="style/style.css">
+<body>
+    <div id="navbard">
+
+    </div>
+    
+    <div id="dis">
+
+    </div>
+</body>
+</html>
+<script type="module">
+    import navbar from "./components/navbar.js";
+    let navbar_div = document.getElementById('navbard')
+    navbar_div.innerHTML = navbar();
+
+    let display = document.getElementById('search').value;
+    console.log(display)
+    
+
+</script>

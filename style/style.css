@@ -1,0 +1,51 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 4%;
+    padding-right: 4%;
+    border: solid 1px black;
+    padding-top:1% ;
+    padding-bottom:1% ;
+    background-color: #78909C;
+    font-size: x-large;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    #options {
+    display: flex;
+    justify-content: space-between;
+    }
+    #options h3 {
+    padding-left: 30px;
+    padding-right: 10px;
+    padding-top: 30px;
+    }
+    .mealName,.incr{
+        padding-top: 5px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    img{
+        width: 100%;
+        padding: 10%;
+    }
+    #search {
+        width: 35%;
+        font-size: x-large;
+        border-radius: 5px;
+        border: none;
+        margin:auto;
+        height: 50px;
+    }
+    #dis{
+        width: 30%;
+        margin:auto;
+        box-shadow: 1px 1px 2px 0px black;
+    }
