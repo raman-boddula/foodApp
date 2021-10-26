@@ -11,13 +11,13 @@
     <div id="navbard">
 
     </div>
-    
     <div id="dis">
 
     </div>
 </body>
 </html>
 <script type="module">
+    var search = [];
     import navbar from "./components/navbar.js";
     let navbar_div = document.getElementById('navbard')
     navbar_div.innerHTML = navbar();
@@ -28,15 +28,17 @@
     butn.onclick=(()=>{
         container.innerHTML=null;
         var query = display.value;
-        console.log(query)
+        //console.log(query);
       var response =  getDetails(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
-      console.log(response)
+      //console.log(response)
       response.then((res)=>{
-          console.log('res',res)
+          //console.log('res',res)
+          search.push(res.meals)
           var data = res.meals;
-          
           AppendData(data,container)
+      
       })
     })
 
+    console.log('search',search)
 </script>

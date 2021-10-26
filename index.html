@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="style/style.css">
+    <div id="navbard">
+
+    </div>
+    <h1 id="wlcm">Welcome to Foodworld</h1>
+    <div id="slideshow">
+
+    </div>
+    <h1 id="wlcm">Categories</h1><br>
+    <div id="dis">
+
+    </div>
+</body>
+</html>
+<script type="module">
+    import navbar from "./components/navbar.js";
+    let navbar_div = document.getElementById('navbard')
+    navbar_div.innerHTML = navbar();
+    let display = document.getElementById('search');
+    display.innerHTML=null;
+    var butn = document.getElementById('btn')
+    butn.onclick=(()=>{
+        window.location.href="search.html";
+    })
+    import {getDetails ,show} from "./scripts/showData.js";
+    let images =[ 
+        "https://images.pexels.com/photos/2673353/pexels-photo-2673353.jpeg",
+        "https://images.pexels.com/photos/941869/pexels-photo-941869.jpeg",
+        "https://images.pexels.com/photos/9967258/pexels-photo-9967258.jpeg",
+        "https://images.pexels.com/photos/5305441/pexels-photo-5305441.jpeg",
+        "https://images.pexels.com/photos/674574/pexels-photo-674574.jpeg",
+        "https://images.pexels.com/photos/958546/pexels-photo-958546.jpeg",
+        "https://images.pexels.com/photos/958547/pexels-photo-958547.jpeg"
+    ];
+    showSlideShow();
+    let pare = document.getElementById('slideshow');
+    function showSlideShow(){
+        let count = 0;
+        let interval = setInterval( ()=>{
+            pare.innerHTML=null;
+            if(count==images.length){
+                count=0;
+            }
+            let div = document.createElement('div')
+            let img = document.createElement('img');
+            img.setAttribute('class','imag')
+            img.src = images[count];
+            div.append(img)
+            pare.append(div);
+            count++;
+        },3000)
+    }
+     let parent = document.getElementById('dis');
+    
+    var response =  getDetails(`https://www.themealdb.com/api/json/v1/1/categories.php`);
+      console.log(response)
+      response.then((res)=>{
+          console.log('res',res)
+          var data = res.categories;
+          show(data,parent)
+      })
+    //show(data)
+</script>
